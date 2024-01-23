@@ -1,0 +1,27 @@
+function barChartSolution(list: number[]) {
+    let max: number = list[0];
+
+    // Set the max element from the array
+    for(let i=0; i< list.length; i++){
+        if(max < list[i]){
+            max = list[i];
+        }
+    }
+
+    // step -1 start analaysing from the highest level (max value) to lowest (1) i.e the max element of array
+    // compare if the space should be empty or not for the array elements
+    for(let floor=max; floor >=1; floor--) {
+        for(let i=1; i<list.length; i++) {
+            if(list[i] >= floor){
+                process.stdout.write("*\t");
+            } else {
+                process.stdout.write("\t");
+            }
+        }
+        console.log('');
+    }
+
+
+}
+
+barChartSolution([3,6,1,2,2]);
